@@ -39,7 +39,7 @@
 	"extra": {
 		"laravel": {
 			"providers": [
-				"Kdabrow\\TimeMachine\\TimeMachineProvider"
+				"Kdabrow\\TimeMachine\\TimeMachineProvider\\Providers"
 			]
 		}
 	}
