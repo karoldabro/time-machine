@@ -2,9 +2,11 @@
 
 namespace Kdabrow\TimeMachine;
 
-use Kdabrow\TimeMachine\Strategies\DateResolver;
-use Kdabrow\TimeMachine\Strategies\PastResolver;
-use Kdabrow\TimeMachine\Strategies\FutureResolver;
+use Kdabrow\TimeMachine\DateChooser;
+use Kdabrow\TimeMachine\TimeTraveler;
+use Kdabrow\TimeMachine\Strategies\Resolvers\DateResolver;
+use Kdabrow\TimeMachine\Strategies\Resolvers\PastResolver;
+use Kdabrow\TimeMachine\Strategies\Resolvers\FutureResolver;
 
 class TimeMachine
 {

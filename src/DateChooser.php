@@ -48,7 +48,7 @@ class DateChooser implements DateChooserInterface
     /**
      * @inheritDoc
      */
-    public function getTimestamp()
+    public function getTimestamp(): int
     {
         return $this->timestamp;
     }
