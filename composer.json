@@ -1,0 +1,46 @@
+{
+	"name": "kdabrow/time-machine",
+	"description": "Laravel / Lumen library that allows to changed dates in db",
+	"type": "package",
+	"keywords": [
+		"php",
+		"laravel",
+		"lumen",
+		"database",
+		"dates",
+		"testing",
+		"integration"
+	],
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Karol Dąbrowski",
+			"email": "karol_dabrowski@interia.eu",
+			"homepage": "http://kdabrow.com"
+		}
+	],
+	"require": {
+		"php": ">= 7.2",
+		"illuminate/database": "^6.0 || ^7.0"
+	},
+	"require-dev": {
+		"orchestra/testbench": "^5.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"Kdabrow\\TimeMachine\\": "src"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Kdabrow\\TimeMachine\\Tests\\": "tests"
+		}
+	},
+	"extra": {
+		"laravel": {
+			"providers": [
+				"Kdabrow\\TimeMachine\\TimeMachineProvider"
+			]
+		}
+	}
+}

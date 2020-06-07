@@ -1,0 +1,10 @@
+vendor
+.phpunit.result.cache
+.vscode
+storage/*
+!storage/.gitkeep
+.env
+Makefile
+.gitmodules
+.gitmodules
+dev-php-env
