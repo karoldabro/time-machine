@@ -22,11 +22,23 @@ class Column
     public function toUpdate()
     {
         $columnNames = $this->getAllDateFields();
-        $columnNames = array_merge($columnNames, $this->timeTraveler->getColumns());
-        Arr::forget($columnNames, $this->timeTraveler->getExcluded());
+
+        if (is_array($this->timeTraveler->getColumns())) {
+            $columnNames = array_merge($columnNames, $this->timeTraveler->getColumns());
+        }
+
+        if (is_array($this->timeTraveler->getExcluded())) {
+            Arr::forget($columnNames, $this->timeTraveler->getExcluded());
+        }
+
         return $columnNames;
     }
 
+    /**
+     * TODO: refactor as driver
+     *
+     * @return void
+     */
     private function getAllDateFields()
     {
         $model = app($this->timeTraveler->getModel());
@@ -38,11 +50,11 @@ class Column
 
         $columnNames = [];
         foreach ($fields as $field) {
-            if (!in_array($field, ['date', 'datetime', 'timestamp'])) {
+            if (!in_array($field->Type, ['date', 'datetime', 'timestamp'])) {
                 continue;
             }
 
-            $columnNames[$field['Field']] = null;
+            $columnNames[$field->Field] = null;
         }
 
         return $columnNames;

@@ -2,6 +2,7 @@
 
 namespace Kdabrow\TimeMachine\Tests\Integration;
 
+use PDO;
 use Kdabrow\TimeMachine\Providers\TimeMachineProvider;
 use Orchestra\Testbench\TestCase as TestbenchTestCase;
 
@@ -17,18 +18,7 @@ class TestCase extends TestbenchTestCase
         $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
         $this->withFactories(__DIR__ . '/database/factories');
 
-        $this->artisan('migrate', ['--database' => 'testing']);
-    }
-
-    /**
-     * Define environment setup.
-     *
-     * @param  \Illuminate\Foundation\Application  $app
-     * @return void
-     */
-    protected function getEnvironmentSetUp($app)
-    {
-        $app['config']->set('database.default', 'testing');
+        $this->artisan('migrate', ['--database' => 'mysql']);
     }
 
     /**
