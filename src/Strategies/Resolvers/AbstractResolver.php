@@ -2,6 +2,7 @@
 
 namespace Kdabrow\TimeMachine\Strategies\Resolvers;
 
+use DateInterval;
 use Kdabrow\TimeMachine\DateChooser;
 use Kdabrow\TimeMachine\Finders\Column;
 use Kdabrow\TimeMachine\TimeMachine;
@@ -43,20 +44,23 @@ abstract class AbstractResolver
                 }
             }
 
-            $toUpdate = [];
-            foreach ((new Column($traveller))->toUpdate() as $columnName => $columnValue) {
-                if (is_callable($columnValue)) {
-                    $toUpdate[$columnName] = call_user_func($columnValue, $columnName, $updated, $toUpdate);
-                } else {
-                    $toUpdate[$columnName] = $this->query($columnName);
-                }
-            }
+            $results = $query->get();
 
-            $updated[] = $query->update($toUpdate);
+            foreach ($results as $result) {
+                $toUpdate = [];
+                foreach ((new Column($traveller))->toUpdate() as $columnName => $columnValue) {
+                    if (is_callable($columnValue)) {
+                        $toUpdate[$columnName] = call_user_func($columnValue, $result->{$columnName}, $columnName, $updated, $toUpdate);
+                    } else {
+                        $toUpdate[$columnName] = $this->query($result->{$columnName}, $columnName);
+                    }
+                }
+                $updated[] = $query->update($toUpdate);
+            }
         }
 
         return true;
     }
 
-    public abstract function query(string $columnName);
+    public abstract function query($columnValue, string $columnName);
 }

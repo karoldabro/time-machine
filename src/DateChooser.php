@@ -52,4 +52,9 @@ class DateChooser implements DateChooserInterface
     {
         return $this->timestamp;
     }
+
+    public function getInterval(): DateInterval
+    {
+        return $this->dateInterval;
+    }
 }

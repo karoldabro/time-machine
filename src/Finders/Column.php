@@ -37,7 +37,7 @@ class Column
     /**
      * TODO: refactor as driver
      *
-     * @return void
+     * @return array
      */
     private function getAllDateFields()
     {

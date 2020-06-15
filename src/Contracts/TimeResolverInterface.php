@@ -11,5 +11,5 @@ interface TimeResolverInterface
      *
      * @return mixed
      */
-    public function query(string $columnName);
+    public function query($columnValue, string $columnName);
 }

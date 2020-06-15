@@ -5,9 +5,9 @@ namespace Kdabrow\TimeMachine\Contracts;
 interface DateChooserInterface
 {
     /**
-     * Get number of seconds
+     * Get expresion
      *
-     * @return  int
+     * @return mixed
      */
     public function getTimestamp(): int;
 }

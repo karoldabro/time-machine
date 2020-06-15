@@ -2,13 +2,20 @@
 
 namespace Kdabrow\TimeMachine\Strategies\Resolvers;
 
-use Illuminate\Support\Facades\DB;
+use DateTime;
 use Kdabrow\TimeMachine\Contracts\TimeResolverInterface;
 
 class PastResolver extends AbstractResolver implements TimeResolverInterface
 {
-    public function query(string $columnName)
+    public function query($columnValue, string $columnName)
     {
-        return DB::raw('DATE_SUB(`' . $columnName . ', INTERVAL' . $this->dateChooser->getTimestamp() . ' SECOND');
+        if ($columnValue instanceof DateTime) {
+            $dateTime = $columnValue;
+        } else if (\is_int($columnValue)) {
+            $dateTime = (new DateTime())->setTimestamp($columnValue);
+        } else {
+            $dateTime = new DateTime($columnValue);
+        }
+        return $dateTime->sub($this->dateChooser->getInterval())->format("Y-m-d H:i:s");
     }
 }
