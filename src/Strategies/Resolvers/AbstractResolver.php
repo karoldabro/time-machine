@@ -39,6 +39,10 @@ abstract class AbstractResolver
                     $query = call_user_func($traveller->getConditions(), $query, $updated);
                 }
 
+                if (is_null($query)) {
+                    continue;
+                }
+
                 if (is_array($traveller->getConditions())) {
                     $query->where($traveller->getConditions());
                 }
