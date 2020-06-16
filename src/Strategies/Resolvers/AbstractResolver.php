@@ -46,16 +46,22 @@ abstract class AbstractResolver
 
             $results = $query->get();
 
+            if ($results->empty()) {
+                continue;
+            }
+
             foreach ($results as $result) {
-                $toUpdate = [];
                 foreach ((new Column($traveller))->toUpdate() as $columnName => $columnValue) {
                     if (is_callable($columnValue)) {
-                        $toUpdate[$columnName] = call_user_func($columnValue, $result->{$columnName}, $columnName, $updated, $toUpdate);
+                        $result->{$columnName} = call_user_func($columnValue, $result->{$columnName}, $columnName, $updated, $result);
                     } else {
-                        $toUpdate[$columnName] = $this->query($result->{$columnName}, $columnName);
+                        if (!empty($result->{$columnName})) {
+                            $result->{$columnName} = $this->query($result->{$columnName}, $columnName);
+                        }
                     }
                 }
-                $updated[] = $query->update($toUpdate);
+                $result->save();
+                $updated[get_class($result)][] = $result->toArray();
             }
         }
 
