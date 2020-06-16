@@ -46,7 +46,7 @@ abstract class AbstractResolver
 
             $results = $query->get();
 
-            if ($results->empty()) {
+            if ($results->isEmpty()) {
                 continue;
             }
 
