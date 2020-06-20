@@ -4,6 +4,7 @@ namespace Kdabrow\TimeMachine;
 
 use Closure;
 use Illuminate\Database\Eloquent\Model;
+use Kdabrow\TimeMachine\Database\Field;
 
 class TimeTraveler
 {
@@ -61,7 +62,10 @@ class TimeTraveler
      */
     public function alsoChange(string $column, Closure $how = null): self
     {
-        $this->columns[$column] = $how;
+        $field = new Field($column);
+        $field->setValue($how);
+
+        $this->columns[] = $field;
         return $this;
     }
 
@@ -74,7 +78,7 @@ class TimeTraveler
      */
     public function exclude(string $column): self
     {
-        $this->excluded[] = $column;
+        $this->excluded[] = new Field($column);
 
         return $this;
     }
@@ -102,9 +106,9 @@ class TimeTraveler
     /**
      * Get additional columns to change
      *
-     * @return array
+     * @return Field[]
      */
-    public function getColumns()
+    public function getAdditionalColumns()
     {
         return $this->columns;
     }
@@ -112,9 +116,9 @@ class TimeTraveler
     /**
      * Get columns that shouldn't be changed
      *
-     * @return  array
+     * @return Field[]
      */
-    public function getExcluded()
+    public function getExcludedColumns()
     {
         return $this->excluded;
     }

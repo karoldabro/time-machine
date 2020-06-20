@@ -47,11 +47,11 @@ abstract class AbstractResolver
 
             foreach ($results as $result) {
                 $toUpdate = [];
-                foreach ((new MysqlDriver($traveller))->toUpdate() as $columnName => $columnValue) {
-                    if (is_callable($columnValue)) {
-                        $toUpdate[$columnName] = call_user_func($columnValue, $result->{$columnName}, $columnName, $updated, $toUpdate);
+                foreach ((new MysqlDriver($traveller))->findUpdatableColumns() as $field) {
+                    if (is_callable($field->getValue())) {
+                        $toUpdate[$field->getName()] = call_user_func($$field->getValue(), $result->{$field->getName()}, $field->getName(), $updated, $toUpdate);
                     } else {
-                        $toUpdate[$columnName] = $this->query($result->{$columnName}, $columnName);
+                        $toUpdate[$field->getName()] = $this->query($result->{$field->getName()}, $field->getName());
                     }
                 }
                 $updated[] = $query->update($toUpdate);
