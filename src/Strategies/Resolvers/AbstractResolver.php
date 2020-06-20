@@ -31,7 +31,13 @@ abstract class AbstractResolver
         $updated = [];
         foreach ($this->timeMachine->getTravelers() as $traveler) {
 
-            $results = $this->getItemsFromDb($traveler, $updated);
+            $query = $this->queryForItemsFromDb($traveler, $updated);
+
+            if ($query === false) {
+                continue;
+            }
+
+            $results = $query->get();
 
             if ($results->isEmpty()) {
                 continue;
@@ -56,7 +62,7 @@ abstract class AbstractResolver
         return true;
     }
 
-    private function getItemsFromDb(TimeTraveler $traveler, &$updated)
+    private function queryForItemsFromDb(TimeTraveler $traveler, &$updated)
     {
         $model = $this->resolveModel($traveler->getModel());
 
@@ -68,7 +74,7 @@ abstract class AbstractResolver
             }
 
             if (is_null($query)) {
-                continue;
+                return false;
             }
 
             if (is_array($traveler->getConditions())) {
@@ -76,7 +82,7 @@ abstract class AbstractResolver
             }
         }
 
-        return $query->get();
+        return $query;
     }
 
     private function resolveModel($modelName): Model
