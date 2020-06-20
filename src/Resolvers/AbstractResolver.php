@@ -44,6 +44,8 @@ abstract class AbstractResolver
 
             $results = $query->get();
 
+            $allUpdatedTimeTravelers[$traveler->getModel()] = null;
+
             if ($results->isEmpty()) {
                 continue;
             }
@@ -65,7 +67,7 @@ abstract class AbstractResolver
 
                 $traveler->addUpdated($model);
 
-                $allUpdatedTimeTravelers[get_class($model)][] = $model->toArray();
+                $allUpdatedTimeTravelers[$traveler->getModel()][] = $model->toArray();
             }
         }
 

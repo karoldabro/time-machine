@@ -37,4 +37,31 @@ class TestCase extends TestbenchTestCase
             TimeMachineProvider::class,
         ];
     }
+
+    protected function compareModel($id, $date, $datetime, $timestamp, $emailVerifiedAt, $createdAt)
+    {
+        $dataToCompare = [
+            'id' => $id,
+            'date' => $date,
+            'datetime' => $datetime,
+            'timestamp' => $timestamp,
+            'email_verified_at' => $emailVerifiedAt,
+            'created_at' => $createdAt,
+        ];
+
+        $this->assertDatabaseHas('models', $dataToCompare);
+    }
+
+    protected function compareConnectedModelByModelId($modelId, $date, $datetime, $timestamp, $createdAt)
+    {
+        $dataToCompare = [
+            'model_id' => $modelId,
+            'date' => $date,
+            'datetime' => $datetime,
+            'timestamp' => $timestamp,
+            'created_at' => $createdAt,
+        ];
+
+        $this->assertDatabaseHas('connected_models', $dataToCompare);
+    }
 }

@@ -34,18 +34,4 @@ class TimeMachineTest extends TestCase
             (new DateTime($model->created_at))->sub($interval)->format("Y-m-d H:i:s"),
         );
     }
-
-    private function compareModel($id, $date, $datetime, $timestamp, $emailVerifiedAt, $createdAt)
-    {
-        $dataToCompare = [
-            'id' => $id,
-            'date' => $date,
-            'datetime' => $datetime,
-            'timestamp' => $timestamp,
-            'email_verified_at' => $emailVerifiedAt,
-            'created_at' => $createdAt,
-        ];
-
-        $this->assertDatabaseHas('models', $dataToCompare);
-    }
 }
