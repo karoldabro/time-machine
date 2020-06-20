@@ -1,6 +1,6 @@
 <?php
 
-namespace Kdabrow\TimeMachine;
+namespace Kdabrow\TimeMachine\Choosers;
 
 use DateTime;
 use Kdabrow\TimeMachine\Contracts\ChooserInterface;

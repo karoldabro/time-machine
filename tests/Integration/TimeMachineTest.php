@@ -4,9 +4,9 @@ namespace Kdabrow\TimeMachine\Tests\Integration;
 
 use DateTime;
 use DateInterval;
-use Kdabrow\TimeMachine\PeriodChooser;
 use Kdabrow\TimeMachine\TimeMachine;
 use Kdabrow\TimeMachine\TimeTraveler;
+use Kdabrow\TimeMachine\Choosers\PeriodChooser;
 use Kdabrow\TimeMachine\Tests\Integration\Database\Model;
 
 class TimeMachineTest extends TestCase

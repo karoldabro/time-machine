@@ -5,7 +5,7 @@ namespace Kdabrow\TimeMachine\Contracts;
 interface TimeResolverInterface
 {
     /**
-     * Return value that will be update existing value
+     * Return value that will update existing value
      *
      * @param mixed $columnValue
      * @param string $columnName

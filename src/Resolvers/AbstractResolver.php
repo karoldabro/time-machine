@@ -8,11 +8,10 @@ use Kdabrow\TimeMachine\TimeTraveler;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Database\Eloquent\Model;
 use Kdabrow\TimeMachine\Contracts\ChooserInterface;
-use Kdabrow\TimeMachine\Database\Drivers\MysqlDriver;
 use Kdabrow\TimeMachine\Contracts\Database\DriverInterface;
 use Kdabrow\TimeMachine\Contracts\Database\FieldTypeInterface;
-use Kdabrow\TimeMachine\DateChooser;
-use Kdabrow\TimeMachine\PeriodChooser;
+use Kdabrow\TimeMachine\Choosers\DateChooser;
+use Kdabrow\TimeMachine\Choosers\PeriodChooser;
 
 abstract class AbstractResolver
 {
@@ -103,11 +102,13 @@ abstract class AbstractResolver
 
     private function resolveDriver(TimeTraveler $timeTraveler): DriverInterface
     {
-        return new MysqlDriver($timeTraveler);
+        $driverName = Config::get('time-machine.drivers.' . strtolower(Config::get('database.default')));
+
+        return app($driverName, ['timeTraveler' => $timeTraveler]);
     }
 
     /**
-     * Return value that will be update existing value
+     * Return value that will update existing value
      *
      * @param mixed $columnValue
      * @param string $columnName
@@ -118,7 +119,7 @@ abstract class AbstractResolver
     public abstract function query($columnValue, string $columnName, string $columnType);
 
     /**
-     * Method will return DateTime object based on field type 
+     * Method return DateTime object based on field type 
      *
      * @param mixed $value
      * @param string $columnType
@@ -134,6 +135,13 @@ abstract class AbstractResolver
         }
     }
 
+    /**
+     * Return strategy taken from configuration based on filed name
+     *
+     * @param string $type
+     *
+     * @return \Kdabrow\TimeMachine\Contracts\Database\FieldTypeInterface
+     */
     protected function resolveFieldTypeObjectBasedOnType($type): FieldTypeInterface
     {
         $fieldTypesObject = Config::get('time-machine.filed-types.' . strtolower($type));

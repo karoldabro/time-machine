@@ -2,8 +2,9 @@
 
 namespace Kdabrow\TimeMachine;
 
-use Kdabrow\TimeMachine\DateChooser;
 use Kdabrow\TimeMachine\TimeTraveler;
+use Kdabrow\TimeMachine\Choosers\DateChooser;
+use Kdabrow\TimeMachine\Choosers\PeriodChooser;
 use Kdabrow\TimeMachine\Resolvers\DateResolver;
 use Kdabrow\TimeMachine\Resolvers\PastResolver;
 use Kdabrow\TimeMachine\Resolvers\FutureResolver;
