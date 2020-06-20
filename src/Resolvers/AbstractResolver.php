@@ -2,12 +2,15 @@
 
 namespace Kdabrow\TimeMachine\Resolvers;
 
+use DateTime;
 use Kdabrow\TimeMachine\DateChooser;
 use Kdabrow\TimeMachine\TimeMachine;
 use Kdabrow\TimeMachine\TimeTraveler;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Database\Eloquent\Model;
-use Kdabrow\TimeMachine\Contracts\Database\DriverInterface;
 use Kdabrow\TimeMachine\Database\Drivers\MysqlDriver;
+use Kdabrow\TimeMachine\Contracts\Database\DriverInterface;
+use Kdabrow\TimeMachine\Contracts\Database\FieldTypeInterface;
 
 abstract class AbstractResolver
 {
@@ -52,7 +55,7 @@ abstract class AbstractResolver
                         $model->{$field->getName()} = call_user_func($$field->getValue(), $model->{$field->getName()}, $field->getName(), $allUpdatedTimeTravelers, $model);
                     } else {
                         if (!empty($model->{$field->getName()})) {
-                            $model->{$field->getName()} = $this->query($model->{$field->getName()}, $field->getName());
+                            $model->{$field->getName()} = $this->query($model->{$field->getName()}, $field->getName(), $field->getType());
                         }
                     }
                 }
@@ -101,5 +104,38 @@ abstract class AbstractResolver
         return new MysqlDriver($timeTraveler);
     }
 
-    public abstract function query($columnValue, string $columnName);
+    /**
+     * Return value that will be update existing value
+     *
+     * @param mixed $columnValue
+     * @param string $columnName
+     * @param string $columnType
+     *
+     * @return mixed
+     */
+    public abstract function query($columnValue, string $columnName, string $columnType);
+
+    /**
+     * Method will return DateTime object based on field type 
+     *
+     * @param mixed $value
+     * @param string $columnType
+     *
+     * @return \DateTime
+     */
+    protected function resolveDateTime($value, $columnType): DateTime
+    {
+        if ($value instanceof DateTime) {
+            return $value;
+        } else {
+            return $this->resolveFieldTypeObjectBasedOnType($columnType)->toDateTime($value);
+        }
+    }
+
+    protected function resolveFieldTypeObjectBasedOnType($type): FieldTypeInterface
+    {
+        $fieldTypesObject = Config::get('time-machine.filed-types.' . strtolower($type));
+
+        return app($fieldTypesObject);
+    }
 }

@@ -2,20 +2,16 @@
 
 namespace Kdabrow\TimeMachine\Resolvers;
 
-use DateTime;
+use Illuminate\Support\Facades\Config;
 use Kdabrow\TimeMachine\Contracts\TimeResolverInterface;
 
 class PastResolver extends AbstractResolver implements TimeResolverInterface
 {
-    public function query($columnValue, string $columnName)
+    public function query($columnValue, string $columnName, string $columnType)
     {
-        if ($columnValue instanceof DateTime) {
-            $dateTime = $columnValue;
-        } else if (\is_int($columnValue)) {
-            $dateTime = (new DateTime())->setTimestamp($columnValue);
-        } else {
-            $dateTime = new DateTime($columnValue);
-        }
-        return $dateTime->sub($this->dateChooser->getInterval())->format("Y-m-d H:i:s");
+        return $this
+            ->resolveDateTime($columnValue, $columnType)
+            ->sub($this->dateChooser->getInterval())
+            ->format(Config::get('time-machine.format'));
     }
 }

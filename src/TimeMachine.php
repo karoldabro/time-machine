@@ -13,7 +13,7 @@ class TimeMachine
     /**
      * All time travelers
      *
-     * @var array[TimeTraveler]
+     * @var TimeTraveler[]
      */
     private $travelers = [];
 
