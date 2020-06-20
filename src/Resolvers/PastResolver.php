@@ -11,7 +11,7 @@ class PastResolver extends AbstractResolver implements TimeResolverInterface
     {
         return $this
             ->resolveDateTime($columnValue, $columnType)
-            ->sub($this->dateChooser->getInterval())
+            ->sub($this->chooser->getInterval())
             ->format(Config::get('time-machine.format'));
     }
 }

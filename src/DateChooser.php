@@ -3,16 +3,10 @@
 namespace Kdabrow\TimeMachine;
 
 use DateTime;
-use DateInterval;
-use DateTimeImmutable;
-use Kdabrow\TimeMachine\Contracts\DateChooserInterface;
+use Kdabrow\TimeMachine\Contracts\ChooserInterface;
 
-class DateChooser implements DateChooserInterface
+class DateChooser implements ChooserInterface
 {
-    private $dateInterval;
-
-    private $dateTime;
-
     /**
      * Number of seconds
      *
@@ -20,41 +14,18 @@ class DateChooser implements DateChooserInterface
      */
     private $timestamp;
 
-    public function byInterval(DateInterval $dateInterval)
-    {
-        $this->dateInterval = $dateInterval;
-        $this->timestamp = $this->dateIntervalToSeconds($dateInterval);
-    }
-
     public function to(DateTime $dateTime)
     {
-        $this->dateTime = $dateTime;
         $this->timestamp = $dateTime->getTimestamp();
     }
 
-    public function byTimestamp(int $timestamp)
+    public function toTimestamp(int $timestamp)
     {
         $this->timestamp = $timestamp;
     }
 
-    private function dateIntervalToSeconds(DateInterval $dateInterval): int
-    {
-        $reference = new DateTimeImmutable;
-        $endTime = $reference->add($dateInterval);
-
-        return $endTime->getTimestamp() - $reference->getTimestamp();
-    }
-
-    /**
-     * @inheritDoc
-     */
     public function getTimestamp(): int
     {
         return $this->timestamp;
-    }
-
-    public function getInterval(): DateInterval
-    {
-        return $this->dateInterval;
     }
 }

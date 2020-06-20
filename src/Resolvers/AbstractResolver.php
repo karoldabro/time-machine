@@ -3,31 +3,33 @@
 namespace Kdabrow\TimeMachine\Resolvers;
 
 use DateTime;
-use Kdabrow\TimeMachine\DateChooser;
 use Kdabrow\TimeMachine\TimeMachine;
 use Kdabrow\TimeMachine\TimeTraveler;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Database\Eloquent\Model;
+use Kdabrow\TimeMachine\Contracts\ChooserInterface;
 use Kdabrow\TimeMachine\Database\Drivers\MysqlDriver;
 use Kdabrow\TimeMachine\Contracts\Database\DriverInterface;
 use Kdabrow\TimeMachine\Contracts\Database\FieldTypeInterface;
+use Kdabrow\TimeMachine\DateChooser;
+use Kdabrow\TimeMachine\PeriodChooser;
 
 abstract class AbstractResolver
 {
     /**
-     * @var DateChooser
+     * @var DateChooser|PeriodChooser
      */
-    protected $dateChooser;
+    protected $chooser;
 
     /**
      * @var TimeMachine
      */
     private $timeMachine;
 
-    public function __construct(TimeMachine $timeMachine, DateChooser $dateChooser)
+    public function __construct(TimeMachine $timeMachine, ChooserInterface $chooser)
     {
         $this->timeMachine = $timeMachine;
-        $this->dateChooser = $dateChooser;
+        $this->chooser = $chooser;
     }
 
     public function resolve(): bool
@@ -47,10 +49,10 @@ abstract class AbstractResolver
                 continue;
             }
 
-            $updatetableColumns = $this->resolveDriver($traveler)->findUpdatableColumns();
+            $updatableColumns = $this->resolveDriver($traveler)->findUpdatableColumns();
 
             foreach ($results as $model) {
-                foreach ($updatetableColumns as $field) {
+                foreach ($updatableColumns as $field) {
                     if (is_callable($field->getValue())) {
                         $model->{$field->getName()} = call_user_func($$field->getValue(), $model->{$field->getName()}, $field->getName(), $allUpdatedTimeTravelers, $model);
                     } else {

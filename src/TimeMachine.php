@@ -24,27 +24,27 @@ class TimeMachine
         return $this;
     }
 
-    public function toPast(DateChooser $dateChooser): bool
+    public function toPast(PeriodChooser $chooser): bool
     {
         return app(PastResolver::class, [
             'timeMachine' => $this,
-            'dateChooser' =>  $dateChooser,
+            'chooser' => $chooser,
         ])->resolve();
     }
 
-    public function toFuture(DateChooser $dateChooser): bool
+    public function toFuture(PeriodChooser $chooser): bool
     {
         return app(FutureResolver::class, [
             'timeMachine' => $this,
-            'dateChooser' =>  $dateChooser,
+            'chooser' => $chooser,
         ])->resolve();
     }
 
-    public function toDate(DateChooser $dateChooser): bool
+    public function toDate(DateChooser $chooser): bool
     {
         return app(DateResolver::class, [
             'timeMachine' => $this,
-            'dateChooser' =>  $dateChooser,
+            'chooser' => $chooser,
         ])->resolve();
     }
 

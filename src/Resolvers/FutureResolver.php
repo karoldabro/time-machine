@@ -2,7 +2,6 @@
 
 namespace Kdabrow\TimeMachine\Resolvers;
 
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Config;
 use Kdabrow\TimeMachine\Contracts\TimeResolverInterface;
 
@@ -12,7 +11,7 @@ class FutureResolver extends AbstractResolver implements TimeResolverInterface
     {
         return $this
             ->resolveDateTime($columnValue, $columnType)
-            ->add($this->dateChooser->getInterval())
+            ->add($this->chooser->getInterval())
             ->format(Config::get('time-machine.format'));
     }
 }

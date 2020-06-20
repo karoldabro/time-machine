@@ -4,7 +4,7 @@ namespace Kdabrow\TimeMachine\Tests\Integration;
 
 use DateTime;
 use DateInterval;
-use Kdabrow\TimeMachine\DateChooser;
+use Kdabrow\TimeMachine\PeriodChooser;
 use Kdabrow\TimeMachine\TimeMachine;
 use Kdabrow\TimeMachine\TimeTraveler;
 use Kdabrow\TimeMachine\Tests\Integration\Database\Model;
@@ -17,7 +17,7 @@ class TimeMachineTest extends TestCase
 
         $interval = new DateInterval("P1M");
 
-        $date = new DateChooser();
+        $date = new PeriodChooser();
         $date->byInterval($interval);
 
         $timeMachine = new TimeMachine();
