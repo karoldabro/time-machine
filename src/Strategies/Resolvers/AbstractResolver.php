@@ -2,10 +2,9 @@
 
 namespace Kdabrow\TimeMachine\Strategies\Resolvers;
 
-use DateInterval;
 use Kdabrow\TimeMachine\DateChooser;
-use Kdabrow\TimeMachine\Finders\Column;
 use Kdabrow\TimeMachine\TimeMachine;
+use Kdabrow\TimeMachine\Database\Drivers\MysqlDriver;
 
 abstract class AbstractResolver
 {
@@ -48,7 +47,7 @@ abstract class AbstractResolver
 
             foreach ($results as $result) {
                 $toUpdate = [];
-                foreach ((new Column($traveller))->toUpdate() as $columnName => $columnValue) {
+                foreach ((new MysqlDriver($traveller))->toUpdate() as $columnName => $columnValue) {
                     if (is_callable($columnValue)) {
                         $toUpdate[$columnName] = call_user_func($columnValue, $result->{$columnName}, $columnName, $updated, $toUpdate);
                     } else {

@@ -1,13 +1,13 @@
 <?php
 
-namespace Kdabrow\TimeMachine\Finders;
+namespace Kdabrow\TimeMachine\Database\Drivers;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Kdabrow\TimeMachine\Exceptions\TimeMachineException;
 use Kdabrow\TimeMachine\TimeTraveler;
 
-class Column
+class MysqlDriver
 {
     /**
      * @var TimeTraveler
