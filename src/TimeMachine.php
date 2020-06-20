@@ -4,9 +4,9 @@ namespace Kdabrow\TimeMachine;
 
 use Kdabrow\TimeMachine\DateChooser;
 use Kdabrow\TimeMachine\TimeTraveler;
-use Kdabrow\TimeMachine\Strategies\Resolvers\DateResolver;
-use Kdabrow\TimeMachine\Strategies\Resolvers\PastResolver;
-use Kdabrow\TimeMachine\Strategies\Resolvers\FutureResolver;
+use Kdabrow\TimeMachine\Resolvers\DateResolver;
+use Kdabrow\TimeMachine\Resolvers\PastResolver;
+use Kdabrow\TimeMachine\Resolvers\FutureResolver;
 
 class TimeMachine
 {

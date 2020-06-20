@@ -1,6 +1,6 @@
 <?php
 
-namespace Kdabrow\TimeMachine\Strategies\Resolvers;
+namespace Kdabrow\TimeMachine\Resolvers;
 
 use Kdabrow\TimeMachine\DateChooser;
 use Kdabrow\TimeMachine\TimeMachine;

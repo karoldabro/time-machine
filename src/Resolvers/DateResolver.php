@@ -1,6 +1,6 @@
 <?php
 
-namespace Kdabrow\TimeMachine\Strategies\Resolvers;
+namespace Kdabrow\TimeMachine\Resolvers;
 
 use Illuminate\Support\Facades\Config;
 use Kdabrow\TimeMachine\Contracts\TimeResolverInterface;
