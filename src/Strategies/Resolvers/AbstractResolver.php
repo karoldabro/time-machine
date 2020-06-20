@@ -33,16 +33,23 @@ abstract class AbstractResolver
 
             $results = $this->getItemsFromDb($traveler, $updated);
 
+            if ($results->isEmpty()) {
+                continue;
+            }
+
             foreach ($results as $result) {
-                $toUpdate = [];
                 foreach ((new MysqlDriver($traveler))->findUpdatableColumns() as $field) {
                     if (is_callable($field->getValue())) {
-                        $toUpdate[$field->getName()] = call_user_func($$field->getValue(), $result->{$field->getName()}, $field->getName(), $updated, $toUpdate);
+                        $result->{$field->getName()} = call_user_func($$field->getValue(), $result->{$field->getName()}, $field->getName(), $updated, $result);
                     } else {
-                        $toUpdate[$field->getName()] = $this->query($result->{$field->getName()}, $field->getName());
+                        if (!empty($result->{$field->getName()})) {
+                            $result->{$field->getName()} = $this->query($result->{$field->getName()}, $field->getName());
+                        }
                     }
                 }
-                $updated[] = $result->update($toUpdate);
+
+                $result->save();
+                $updated[get_class($result)][] = $result->toArray();
             }
         }
 
@@ -58,6 +65,10 @@ abstract class AbstractResolver
         if (!is_null($traveler->getConditions())) {
             if (is_callable($traveler->getConditions())) {
                 $query = call_user_func($traveler->getConditions(), $query, $updated);
+            }
+
+            if (is_null($query)) {
+                continue;
             }
 
             if (is_array($traveler->getConditions())) {
