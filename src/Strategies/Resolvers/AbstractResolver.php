@@ -6,6 +6,7 @@ use Kdabrow\TimeMachine\DateChooser;
 use Kdabrow\TimeMachine\TimeMachine;
 use Kdabrow\TimeMachine\TimeTraveler;
 use Illuminate\Database\Eloquent\Model;
+use Kdabrow\TimeMachine\Contracts\Database\DriverInterface;
 use Kdabrow\TimeMachine\Database\Drivers\MysqlDriver;
 
 abstract class AbstractResolver
@@ -28,10 +29,10 @@ abstract class AbstractResolver
 
     public function resolve(): bool
     {
-        $updated = [];
+        $allUpdatedTimeTravelers = [];
         foreach ($this->timeMachine->getTravelers() as $traveler) {
 
-            $query = $this->queryForItemsFromDb($traveler, $updated);
+            $query = $this->queryForItemsFromDb($traveler, $allUpdatedTimeTravelers);
 
             if ($query === false) {
                 continue;
@@ -43,26 +44,31 @@ abstract class AbstractResolver
                 continue;
             }
 
-            foreach ($results as $result) {
-                foreach ((new MysqlDriver($traveler))->findUpdatableColumns() as $field) {
+            $updatetableColumns = $this->resolveDriver($traveler)->findUpdatableColumns();
+
+            foreach ($results as $model) {
+                foreach ($updatetableColumns as $field) {
                     if (is_callable($field->getValue())) {
-                        $result->{$field->getName()} = call_user_func($$field->getValue(), $result->{$field->getName()}, $field->getName(), $updated, $result);
+                        $model->{$field->getName()} = call_user_func($$field->getValue(), $model->{$field->getName()}, $field->getName(), $allUpdatedTimeTravelers, $model);
                     } else {
-                        if (!empty($result->{$field->getName()})) {
-                            $result->{$field->getName()} = $this->query($result->{$field->getName()}, $field->getName());
+                        if (!empty($model->{$field->getName()})) {
+                            $model->{$field->getName()} = $this->query($model->{$field->getName()}, $field->getName());
                         }
                     }
                 }
 
-                $result->save();
-                $updated[get_class($result)][] = $result->toArray();
+                $model->save();
+
+                $traveler->addUpdated($model);
+
+                $allUpdatedTimeTravelers[get_class($model)][] = $model->toArray();
             }
         }
 
         return true;
     }
 
-    private function queryForItemsFromDb(TimeTraveler $traveler, &$updated)
+    private function queryForItemsFromDb(TimeTraveler $traveler, &$allUpdatedTimeTravelers)
     {
         $model = $this->resolveModel($traveler->getModel());
 
@@ -70,7 +76,7 @@ abstract class AbstractResolver
 
         if (!is_null($traveler->getConditions())) {
             if (is_callable($traveler->getConditions())) {
-                $query = call_user_func($traveler->getConditions(), $query, $updated);
+                $query = call_user_func($traveler->getConditions(), $query, $allUpdatedTimeTravelers);
             }
 
             if (is_null($query)) {
@@ -88,6 +94,11 @@ abstract class AbstractResolver
     private function resolveModel($modelName): Model
     {
         return app($modelName);
+    }
+
+    private function resolveDriver(TimeTraveler $timeTraveler): DriverInterface
+    {
+        return new MysqlDriver($timeTraveler);
     }
 
     public abstract function query($columnValue, string $columnName);

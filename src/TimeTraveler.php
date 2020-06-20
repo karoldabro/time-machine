@@ -37,6 +37,13 @@ class TimeTraveler
     private $excluded;
 
     /**
+     * All updated values
+     *
+     * @var array
+     */
+    private $updated;
+
+    /**
      * Time traveler represents model or table in database
      *
      * @param string|Model $model Model name
@@ -121,5 +128,27 @@ class TimeTraveler
     public function getExcludedColumns()
     {
         return $this->excluded;
+    }
+
+    /**
+     * Get all updated values
+     *
+     * @return Model[]
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
+
+    /**
+     * Add apdated model
+     *
+     * @return  self
+     */
+    public function addUpdated(Model $updated)
+    {
+        $this->updated[] = $updated;
+
+        return $this;
     }
 }

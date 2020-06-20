@@ -51,7 +51,7 @@ class TimeMachine
     /**
      * Get all time travelers
      *
-     * @return  array[TimeTraveler]
+     * @return TimeTraveler[]
      */
     public function getTravelers()
     {
