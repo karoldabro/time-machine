@@ -1,0 +1,348 @@
+[304] Log opened at 2020-06-28 15:56:53
+[304] I: Connecting to configured address/port: host.docker.internal:9000.
+[304] W: Creating socket for 'host.docker.internal:9000', getaddrinfo: Invalid argument.
+[304] E: Could not connect to client. :-(
+[304] Log closed at 2020-06-28 15:56:53
+
+[340] Log opened at 2020-06-28 15:57:01
+[340] I: Connecting to configured address/port: host.docker.internal:9000.
+[340] W: Creating socket for 'host.docker.internal:9000', getaddrinfo: Invalid argument.
+[340] E: Could not connect to client. :-(
+[340] Log closed at 2020-06-28 15:57:01
+
+[306] Log opened at 2020-06-28 15:59:02
+[306] I: Connecting to configured address/port: localhost:9000.
+[306] I: Connected to client. :-)
+[306] -> <init xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" fileuri="file:///app/vendor/phpunit/phpunit/phpunit" language="PHP" xdebug:language_version="7.3.14" protocol_version="1.0" appid="306" idekey="VSCODE"><engine version="2.9.2"><![CDATA[Xdebug]]></engine><author><![CDATA[Derick Rethans]]></author><url><![CDATA[https://xdebug.org]]></url><copyright><![CDATA[Copyright (c) 2002-2020 by Derick Rethans]]></copyright></init>
+
+[306] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" status="stopping" reason="ok"></response>
+
+[306] Log closed at 2020-06-28 15:59:03
+
+[330] Log opened at 2020-06-28 15:59:08
+[330] I: Connecting to configured address/port: localhost:9000.
+[330] I: Connected to client. :-)
+[330] -> <init xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" fileuri="file:///app/vendor/phpunit/phpunit/phpunit" language="PHP" xdebug:language_version="7.3.14" protocol_version="1.0" appid="330" idekey="VSCODE"><engine version="2.9.2"><![CDATA[Xdebug]]></engine><author><![CDATA[Derick Rethans]]></author><url><![CDATA[https://xdebug.org]]></url><copyright><![CDATA[Copyright (c) 2002-2020 by Derick Rethans]]></copyright></init>
+
+[330] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" status="stopping" reason="ok"></response>
+
+[330] Log closed at 2020-06-28 15:59:08
+
+[503] Log opened at 2020-06-28 16:13:26
+[503] I: Connecting to configured address/port: localhost:9999.
+[503] W: Creating socket for 'localhost:9999', poll success, but error: Operation now in progress (29).
+[503] W: Creating socket for 'localhost:9999', connect: Cannot assign requested address.
+[503] E: Could not connect to client. :-(
+[503] Log closed at 2020-06-28 16:13:26
+
+[395] Log opened at 2020-06-28 16:21:21
+[395] I: Connecting to configured address/port: localhost:9000.
+[395] I: Connected to client. :-)
+[395] -> <init xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" fileuri="file:///app/vendor/phpunit/phpunit/phpunit" language="PHP" xdebug:language_version="7.3.14" protocol_version="1.0" appid="395" idekey="VSCODE"><engine version="2.9.2"><![CDATA[Xdebug]]></engine><author><![CDATA[Derick Rethans]]></author><url><![CDATA[https://xdebug.org]]></url><copyright><![CDATA[Copyright (c) 2002-2020 by Derick Rethans]]></copyright></init>
+
+[395] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" status="stopping" reason="ok"></response>
+
+[395] Log closed at 2020-06-28 16:21:24
+
+[4096] Log opened at 2020-06-28 16:46:01
+[4096] I: Connecting to configured address/port: localhost:9000.
+[4096] I: Connected to client. :-)
+[4096] -> <init xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" fileuri="file:///app/vendor/phpunit/phpunit/phpunit" language="PHP" xdebug:language_version="7.3.14" protocol_version="1.0" appid="4096" idekey="VSCODE"><engine version="2.9.2"><![CDATA[Xdebug]]></engine><author><![CDATA[Derick Rethans]]></author><url><![CDATA[https://xdebug.org]]></url><copyright><![CDATA[Copyright (c) 2002-2020 by Derick Rethans]]></copyright></init>
+
+[4123] Log opened at 2020-06-28 16:46:07
+[4123] I: Connecting to configured address/port: localhost:9000.
+[4123] I: Connected to client. :-)
+[4123] -> <init xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" fileuri="file:///usr/local/bin/composer" language="PHP" xdebug:language_version="7.3.14" protocol_version="1.0" appid="4123" idekey="VSCODE"><engine version="2.9.2"><![CDATA[Xdebug]]></engine><author><![CDATA[Derick Rethans]]></author><url><![CDATA[https://xdebug.org]]></url><copyright><![CDATA[Copyright (c) 2002-2020 by Derick Rethans]]></copyright></init>
+
+[4123] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" status="stopping" reason="ok"></response>
+
+[4123] Log closed at 2020-06-28 16:46:08
+
+[4217] Log opened at 2020-06-28 16:46:39
+[4217] I: Connecting to configured address/port: localhost:9000.
+[4217] I: Connected to client. :-)
+[4217] -> <init xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" fileuri="file:///app/vendor/phpunit/phpunit/phpunit" language="PHP" xdebug:language_version="7.3.14" protocol_version="1.0" appid="4217" idekey="VSCODE"><engine version="2.9.2"><![CDATA[Xdebug]]></engine><author><![CDATA[Derick Rethans]]></author><url><![CDATA[https://xdebug.org]]></url><copyright><![CDATA[Copyright (c) 2002-2020 by Derick Rethans]]></copyright></init>
+
+[4217] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" status="stopping" reason="ok"></response>
+
+[4217] Log closed at 2020-06-28 16:46:40
+
+[4253] Log opened at 2020-06-28 16:46:48
+[4253] I: Connecting to configured address/port: localhost:9000.
+[4253] I: Connected to client. :-)
+[4253] -> <init xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" fileuri="file:///app/vendor/phpunit/phpunit/phpunit" language="PHP" xdebug:language_version="7.3.14" protocol_version="1.0" appid="4253" idekey="VSCODE"><engine version="2.9.2"><![CDATA[Xdebug]]></engine><author><![CDATA[Derick Rethans]]></author><url><![CDATA[https://xdebug.org]]></url><copyright><![CDATA[Copyright (c) 2002-2020 by Derick Rethans]]></copyright></init>
+
+[4253] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" status="stopping" reason="ok"></response>
+
+[4253] Log closed at 2020-06-28 16:46:48
+
+[4285] Log opened at 2020-06-28 16:46:57
+[4285] I: Connecting to configured address/port: localhost:9000.
+[4285] I: Connected to client. :-)
+[4285] -> <init xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" fileuri="file:///app/vendor/phpunit/phpunit/phpunit" language="PHP" xdebug:language_version="7.3.14" protocol_version="1.0" appid="4285" idekey="VSCODE"><engine version="2.9.2"><![CDATA[Xdebug]]></engine><author><![CDATA[Derick Rethans]]></author><url><![CDATA[https://xdebug.org]]></url><copyright><![CDATA[Copyright (c) 2002-2020 by Derick Rethans]]></copyright></init>
+
+[4285] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" status="stopping" reason="ok"></response>
+
+[4285] Log closed at 2020-06-28 16:46:58
+
+[4510] Log opened at 2020-06-28 16:48:12
+[4510] I: Connecting to configured address/port: localhost:9000.
+[4510] I: Connected to client. :-)
+[4510] -> <init xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" fileuri="file:///app/vendor/phpunit/phpunit/phpunit" language="PHP" xdebug:language_version="7.3.14" protocol_version="1.0" appid="4510" idekey="VSCODE"><engine version="2.9.2"><![CDATA[Xdebug]]></engine><author><![CDATA[Derick Rethans]]></author><url><![CDATA[https://xdebug.org]]></url><copyright><![CDATA[Copyright (c) 2002-2020 by Derick Rethans]]></copyright></init>
+
+[4510] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" status="stopping" reason="ok"></response>
+
+[4510] Log closed at 2020-06-28 16:48:13
+
+[4540] Log opened at 2020-06-28 16:48:18
+[4540] I: Connecting to configured address/port: localhost:9000.
+[4540] I: Connected to client. :-)
+[4540] -> <init xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" fileuri="file:///app/vendor/phpunit/phpunit/phpunit" language="PHP" xdebug:language_version="7.3.14" protocol_version="1.0" appid="4540" idekey="VSCODE"><engine version="2.9.2"><![CDATA[Xdebug]]></engine><author><![CDATA[Derick Rethans]]></author><url><![CDATA[https://xdebug.org]]></url><copyright><![CDATA[Copyright (c) 2002-2020 by Derick Rethans]]></copyright></init>
+
+[4540] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" status="stopping" reason="ok"></response>
+
+[4540] Log closed at 2020-06-28 16:48:18
+
+[4677] Log opened at 2020-06-28 16:49:09
+[4677] I: Connecting to configured address/port: localhost:9000.
+[4677] I: Connected to client. :-)
+[4677] -> <init xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" fileuri="file:///usr/local/bin/composer" language="PHP" xdebug:language_version="7.3.14" protocol_version="1.0" appid="4677" idekey="VSCODE"><engine version="2.9.2"><![CDATA[Xdebug]]></engine><author><![CDATA[Derick Rethans]]></author><url><![CDATA[https://xdebug.org]]></url><copyright><![CDATA[Copyright (c) 2002-2020 by Derick Rethans]]></copyright></init>
+
+[4677] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" status="stopping" reason="ok"></response>
+
+[4677] Log closed at 2020-06-28 16:49:10
+
+[4694] Log opened at 2020-06-28 16:49:11
+[4694] I: Connecting to configured address/port: localhost:9000.
+[4694] I: Connected to client. :-)
+[4694] -> <init xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" fileuri="file:///app/vendor/phpunit/phpunit/phpunit" language="PHP" xdebug:language_version="7.3.14" protocol_version="1.0" appid="4694" idekey="VSCODE"><engine version="2.9.2"><![CDATA[Xdebug]]></engine><author><![CDATA[Derick Rethans]]></author><url><![CDATA[https://xdebug.org]]></url><copyright><![CDATA[Copyright (c) 2002-2020 by Derick Rethans]]></copyright></init>
+
+[4694] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" status="stopping" reason="ok"></response>
+
+[4694] Log closed at 2020-06-28 16:49:12
+
+[4810] Log opened at 2020-06-28 16:49:55
+[4810] I: Connecting to configured address/port: localhost:9000.
+[4810] I: Connected to client. :-)
+[4810] -> <init xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" fileuri="file:///app/vendor/phpunit/phpunit/phpunit" language="PHP" xdebug:language_version="7.3.14" protocol_version="1.0" appid="4810" idekey="VSCODE"><engine version="2.9.2"><![CDATA[Xdebug]]></engine><author><![CDATA[Derick Rethans]]></author><url><![CDATA[https://xdebug.org]]></url><copyright><![CDATA[Copyright (c) 2002-2020 by Derick Rethans]]></copyright></init>
+
+[4810] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" status="stopping" reason="ok"></response>
+
+[4810] Log closed at 2020-06-28 16:49:55
+
+[262] Log opened at 2020-06-29 20:10:28
+[262] I: Connecting to configured address/port: localhost:9000.
+[262] I: Connected to client. :-)
+[262] -> <init xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" fileuri="file:///usr/local/bin/composer" language="PHP" xdebug:language_version="7.3.14" protocol_version="1.0" appid="262" idekey="VSCODE"><engine version="2.9.2"><![CDATA[Xdebug]]></engine><author><![CDATA[Derick Rethans]]></author><url><![CDATA[https://xdebug.org]]></url><copyright><![CDATA[Copyright (c) 2002-2020 by Derick Rethans]]></copyright></init>
+
+[262] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" status="stopping" reason="ok"></response>
+
+[262] Log closed at 2020-06-29 20:10:30
+
+[477] Log opened at 2020-06-29 20:11:48
+[477] I: Connecting to configured address/port: localhost:9000.
+[477] I: Connected to client. :-)
+[477] -> <init xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" fileuri="file:///app/vendor/phpunit/phpunit/phpunit" language="PHP" xdebug:language_version="7.3.14" protocol_version="1.0" appid="477" idekey="VSCODE"><engine version="2.9.2"><![CDATA[Xdebug]]></engine><author><![CDATA[Derick Rethans]]></author><url><![CDATA[https://xdebug.org]]></url><copyright><![CDATA[Copyright (c) 2002-2020 by Derick Rethans]]></copyright></init>
+
+[477] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" status="stopping" reason="ok"></response>
+
+[477] Log closed at 2020-06-29 20:11:50
+
+[506] Log opened at 2020-06-29 20:11:55
+[506] I: Connecting to configured address/port: localhost:9000.
+[506] I: Connected to client. :-)
+[506] -> <init xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" fileuri="file:///app/vendor/phpunit/phpunit/phpunit" language="PHP" xdebug:language_version="7.3.14" protocol_version="1.0" appid="506" idekey="VSCODE"><engine version="2.9.2"><![CDATA[Xdebug]]></engine><author><![CDATA[Derick Rethans]]></author><url><![CDATA[https://xdebug.org]]></url><copyright><![CDATA[Copyright (c) 2002-2020 by Derick Rethans]]></copyright></init>
+
+[506] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" status="stopping" reason="ok"></response>
+
+[506] Log closed at 2020-06-29 20:11:56
+
+[540] Log opened at 2020-06-29 20:12:03
+[540] I: Connecting to configured address/port: localhost:9000.
+[540] I: Connected to client. :-)
+[540] -> <init xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" fileuri="file:///app/vendor/phpunit/phpunit/phpunit" language="PHP" xdebug:language_version="7.3.14" protocol_version="1.0" appid="540" idekey="VSCODE"><engine version="2.9.2"><![CDATA[Xdebug]]></engine><author><![CDATA[Derick Rethans]]></author><url><![CDATA[https://xdebug.org]]></url><copyright><![CDATA[Copyright (c) 2002-2020 by Derick Rethans]]></copyright></init>
+
+[540] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" status="stopping" reason="ok"></response>
+
+[540] Log closed at 2020-06-29 20:12:03
+
+[742] Log opened at 2020-06-29 20:13:18
+[742] I: Connecting to configured address/port: localhost:9000.
+[742] I: Connected to client. :-)
+[742] -> <init xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" fileuri="file:///app/vendor/phpunit/phpunit/phpunit" language="PHP" xdebug:language_version="7.3.14" protocol_version="1.0" appid="742" idekey="VSCODE"><engine version="2.9.2"><![CDATA[Xdebug]]></engine><author><![CDATA[Derick Rethans]]></author><url><![CDATA[https://xdebug.org]]></url><copyright><![CDATA[Copyright (c) 2002-2020 by Derick Rethans]]></copyright></init>
+
+[742] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" status="stopping" reason="ok"></response>
+
+[742] Log closed at 2020-06-29 20:13:18
+
+[919] Log opened at 2020-06-29 20:14:23
+[919] I: Connecting to configured address/port: localhost:9000.
+[919] I: Connected to client. :-)
+[919] -> <init xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" fileuri="file:///app/vendor/phpunit/phpunit/phpunit" language="PHP" xdebug:language_version="7.3.14" protocol_version="1.0" appid="919" idekey="VSCODE"><engine version="2.9.2"><![CDATA[Xdebug]]></engine><author><![CDATA[Derick Rethans]]></author><url><![CDATA[https://xdebug.org]]></url><copyright><![CDATA[Copyright (c) 2002-2020 by Derick Rethans]]></copyright></init>
+
+[919] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" status="stopping" reason="ok"></response>
+
+[919] Log closed at 2020-06-29 20:14:24
+
+[940] Log opened at 2020-06-29 20:14:26
+[940] I: Connecting to configured address/port: localhost:9000.
+[940] I: Connected to client. :-)
+[940] -> <init xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" fileuri="file:///app/vendor/phpunit/phpunit/phpunit" language="PHP" xdebug:language_version="7.3.14" protocol_version="1.0" appid="940" idekey="VSCODE"><engine version="2.9.2"><![CDATA[Xdebug]]></engine><author><![CDATA[Derick Rethans]]></author><url><![CDATA[https://xdebug.org]]></url><copyright><![CDATA[Copyright (c) 2002-2020 by Derick Rethans]]></copyright></init>
+
+[940] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" status="stopping" reason="ok"></response>
+
+[940] Log closed at 2020-06-29 20:14:26
+
+[960] Log opened at 2020-06-29 20:14:28
+[960] I: Connecting to configured address/port: localhost:9000.
+[960] I: Connected to client. :-)
+[960] -> <init xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" fileuri="file:///app/vendor/phpunit/phpunit/phpunit" language="PHP" xdebug:language_version="7.3.14" protocol_version="1.0" appid="960" idekey="VSCODE"><engine version="2.9.2"><![CDATA[Xdebug]]></engine><author><![CDATA[Derick Rethans]]></author><url><![CDATA[https://xdebug.org]]></url><copyright><![CDATA[Copyright (c) 2002-2020 by Derick Rethans]]></copyright></init>
+
+[960] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" status="stopping" reason="ok"></response>
+
+[960] Log closed at 2020-06-29 20:14:29
+
+[998] Log opened at 2020-06-29 20:14:38
+[998] I: Connecting to configured address/port: localhost:9000.
+[998] I: Connected to client. :-)
+[998] -> <init xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" fileuri="file:///app/vendor/phpunit/phpunit/phpunit" language="PHP" xdebug:language_version="7.3.14" protocol_version="1.0" appid="998" idekey="VSCODE"><engine version="2.9.2"><![CDATA[Xdebug]]></engine><author><![CDATA[Derick Rethans]]></author><url><![CDATA[https://xdebug.org]]></url><copyright><![CDATA[Copyright (c) 2002-2020 by Derick Rethans]]></copyright></init>
+
+[998] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" status="stopping" reason="ok"></response>
+
+[998] Log closed at 2020-06-29 20:14:39
+
+[1761] Log opened at 2020-06-29 20:19:38
+[1761] I: Connecting to configured address/port: localhost:9000.
+[1761] I: Connected to client. :-)
+[1761] -> <init xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" fileuri="file:///app/vendor/phpunit/phpunit/phpunit" language="PHP" xdebug:language_version="7.3.14" protocol_version="1.0" appid="1761" idekey="VSCODE"><engine version="2.9.2"><![CDATA[Xdebug]]></engine><author><![CDATA[Derick Rethans]]></author><url><![CDATA[https://xdebug.org]]></url><copyright><![CDATA[Copyright (c) 2002-2020 by Derick Rethans]]></copyright></init>
+
+[1761] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" status="stopping" reason="ok"></response>
+
+[1761] Log closed at 2020-06-29 20:19:39
+
+[1938] Log opened at 2020-06-29 20:20:45
+[1938] I: Connecting to configured address/port: localhost:9000.
+[1938] I: Connected to client. :-)
+[1938] -> <init xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" fileuri="file:///app/vendor/phpunit/phpunit/phpunit" language="PHP" xdebug:language_version="7.3.14" protocol_version="1.0" appid="1938" idekey="VSCODE"><engine version="2.9.2"><![CDATA[Xdebug]]></engine><author><![CDATA[Derick Rethans]]></author><url><![CDATA[https://xdebug.org]]></url><copyright><![CDATA[Copyright (c) 2002-2020 by Derick Rethans]]></copyright></init>
+
+[1938] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" status="stopping" reason="ok"></response>
+
+[1938] Log closed at 2020-06-29 20:20:46
+
+[2269] Log opened at 2020-06-29 20:22:52
+[2269] I: Connecting to configured address/port: localhost:9000.
+[2269] I: Connected to client. :-)
+[2269] -> <init xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" fileuri="file:///app/vendor/phpunit/phpunit/phpunit" language="PHP" xdebug:language_version="7.3.14" protocol_version="1.0" appid="2269" idekey="VSCODE"><engine version="2.9.2"><![CDATA[Xdebug]]></engine><author><![CDATA[Derick Rethans]]></author><url><![CDATA[https://xdebug.org]]></url><copyright><![CDATA[Copyright (c) 2002-2020 by Derick Rethans]]></copyright></init>
+
+[2269] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" status="stopping" reason="ok"></response>
+
+[2269] Log closed at 2020-06-29 20:22:53
+
+[2377] Log opened at 2020-06-29 20:23:31
+[2377] I: Connecting to configured address/port: localhost:9000.
+[2377] I: Connected to client. :-)
+[2377] -> <init xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" fileuri="file:///app/vendor/phpunit/phpunit/phpunit" language="PHP" xdebug:language_version="7.3.14" protocol_version="1.0" appid="2377" idekey="VSCODE"><engine version="2.9.2"><![CDATA[Xdebug]]></engine><author><![CDATA[Derick Rethans]]></author><url><![CDATA[https://xdebug.org]]></url><copyright><![CDATA[Copyright (c) 2002-2020 by Derick Rethans]]></copyright></init>
+
+[2377] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" status="stopping" reason="ok"></response>
+
+[2377] Log closed at 2020-06-29 20:23:32
+
+[2428] Log opened at 2020-06-29 20:23:45
+[2428] I: Connecting to configured address/port: localhost:9000.
+[2428] I: Connected to client. :-)
+[2428] -> <init xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" fileuri="file:///app/vendor/phpunit/phpunit/phpunit" language="PHP" xdebug:language_version="7.3.14" protocol_version="1.0" appid="2428" idekey="VSCODE"><engine version="2.9.2"><![CDATA[Xdebug]]></engine><author><![CDATA[Derick Rethans]]></author><url><![CDATA[https://xdebug.org]]></url><copyright><![CDATA[Copyright (c) 2002-2020 by Derick Rethans]]></copyright></init>
+
+[2428] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" status="stopping" reason="ok"></response>
+
+[2428] Log closed at 2020-06-29 20:23:46
+
+[2621] Log opened at 2020-06-29 20:24:57
+[2621] I: Connecting to configured address/port: localhost:9000.
+[2621] I: Connected to client. :-)
+[2621] -> <init xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" fileuri="file:///app/vendor/phpunit/phpunit/phpunit" language="PHP" xdebug:language_version="7.3.14" protocol_version="1.0" appid="2621" idekey="VSCODE"><engine version="2.9.2"><![CDATA[Xdebug]]></engine><author><![CDATA[Derick Rethans]]></author><url><![CDATA[https://xdebug.org]]></url><copyright><![CDATA[Copyright (c) 2002-2020 by Derick Rethans]]></copyright></init>
+
+[2621] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" status="stopping" reason="ok"></response>
+
+[2621] Log closed at 2020-06-29 20:24:59
+
+[2959] Log opened at 2020-06-29 20:27:07
+[2959] I: Connecting to configured address/port: localhost:9000.
+[2959] I: Connected to client. :-)
+[2959] -> <init xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" fileuri="file:///app/vendor/phpunit/phpunit/phpunit" language="PHP" xdebug:language_version="7.3.14" protocol_version="1.0" appid="2959" idekey="VSCODE"><engine version="2.9.2"><![CDATA[Xdebug]]></engine><author><![CDATA[Derick Rethans]]></author><url><![CDATA[https://xdebug.org]]></url><copyright><![CDATA[Copyright (c) 2002-2020 by Derick Rethans]]></copyright></init>
+
+[2959] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" status="stopping" reason="ok"></response>
+
+[2959] Log closed at 2020-06-29 20:27:09
+
+[3488] Log opened at 2020-06-29 20:30:35
+[3488] I: Connecting to configured address/port: localhost:9000.
+[3488] I: Connected to client. :-)
+[3488] -> <init xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" fileuri="file:///app/vendor/phpunit/phpunit/phpunit" language="PHP" xdebug:language_version="7.3.14" protocol_version="1.0" appid="3488" idekey="VSCODE"><engine version="2.9.2"><![CDATA[Xdebug]]></engine><author><![CDATA[Derick Rethans]]></author><url><![CDATA[https://xdebug.org]]></url><copyright><![CDATA[Copyright (c) 2002-2020 by Derick Rethans]]></copyright></init>
+
+[3488] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" status="stopping" reason="ok"></response>
+
+[3488] Log closed at 2020-06-29 20:30:37
+
+[3560] Log opened at 2020-06-29 20:30:57
+[3560] I: Connecting to configured address/port: localhost:9000.
+[3560] I: Connected to client. :-)
+[3560] -> <init xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" fileuri="file:///app/vendor/phpunit/phpunit/phpunit" language="PHP" xdebug:language_version="7.3.14" protocol_version="1.0" appid="3560" idekey="VSCODE"><engine version="2.9.2"><![CDATA[Xdebug]]></engine><author><![CDATA[Derick Rethans]]></author><url><![CDATA[https://xdebug.org]]></url><copyright><![CDATA[Copyright (c) 2002-2020 by Derick Rethans]]></copyright></init>
+
+[3560] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" status="stopping" reason="ok"></response>
+
+[3560] Log closed at 2020-06-29 20:30:58
+
+[3654] Log opened at 2020-06-29 20:31:30
+[3654] I: Connecting to configured address/port: localhost:9000.
+[3654] I: Connected to client. :-)
+[3654] -> <init xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" fileuri="file:///app/vendor/phpunit/phpunit/phpunit" language="PHP" xdebug:language_version="7.3.14" protocol_version="1.0" appid="3654" idekey="VSCODE"><engine version="2.9.2"><![CDATA[Xdebug]]></engine><author><![CDATA[Derick Rethans]]></author><url><![CDATA[https://xdebug.org]]></url><copyright><![CDATA[Copyright (c) 2002-2020 by Derick Rethans]]></copyright></init>
+
+[3654] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" status="stopping" reason="ok"></response>
+
+[3654] Log closed at 2020-06-29 20:31:31
+
+[4033] Log opened at 2020-06-29 20:33:57
+[4033] I: Connecting to configured address/port: localhost:9000.
+[4033] I: Connected to client. :-)
+[4033] -> <init xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" fileuri="file:///app/vendor/phpunit/phpunit/phpunit" language="PHP" xdebug:language_version="7.3.14" protocol_version="1.0" appid="4033" idekey="VSCODE"><engine version="2.9.2"><![CDATA[Xdebug]]></engine><author><![CDATA[Derick Rethans]]></author><url><![CDATA[https://xdebug.org]]></url><copyright><![CDATA[Copyright (c) 2002-2020 by Derick Rethans]]></copyright></init>
+
+[4033] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" status="stopping" reason="ok"></response>
+
+[4033] Log closed at 2020-06-29 20:33:58
+
+[4176] Log opened at 2020-06-29 20:34:48
+[4176] I: Connecting to configured address/port: localhost:9000.
+[4176] I: Connected to client. :-)
+[4176] -> <init xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" fileuri="file:///app/vendor/phpunit/phpunit/phpunit" language="PHP" xdebug:language_version="7.3.14" protocol_version="1.0" appid="4176" idekey="VSCODE"><engine version="2.9.2"><![CDATA[Xdebug]]></engine><author><![CDATA[Derick Rethans]]></author><url><![CDATA[https://xdebug.org]]></url><copyright><![CDATA[Copyright (c) 2002-2020 by Derick Rethans]]></copyright></init>
+
+[4176] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" status="stopping" reason="ok"></response>
+
+[4176] Log closed at 2020-06-29 20:34:49
+
+[4233] Log opened at 2020-06-29 20:35:06
+[4233] I: Connecting to configured address/port: localhost:9000.
+[4233] I: Connected to client. :-)
+[4233] -> <init xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" fileuri="file:///app/vendor/phpunit/phpunit/phpunit" language="PHP" xdebug:language_version="7.3.14" protocol_version="1.0" appid="4233" idekey="VSCODE"><engine version="2.9.2"><![CDATA[Xdebug]]></engine><author><![CDATA[Derick Rethans]]></author><url><![CDATA[https://xdebug.org]]></url><copyright><![CDATA[Copyright (c) 2002-2020 by Derick Rethans]]></copyright></init>
+
+[4233] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" status="stopping" reason="ok"></response>
+
+[4233] Log closed at 2020-06-29 20:35:07
+
+[4410] Log opened at 2020-06-29 20:36:12
+[4410] I: Connecting to configured address/port: localhost:9000.
+[4410] I: Connected to client. :-)
+[4410] -> <init xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" fileuri="file:///app/vendor/phpunit/phpunit/phpunit" language="PHP" xdebug:language_version="7.3.14" protocol_version="1.0" appid="4410" idekey="VSCODE"><engine version="2.9.2"><![CDATA[Xdebug]]></engine><author><![CDATA[Derick Rethans]]></author><url><![CDATA[https://xdebug.org]]></url><copyright><![CDATA[Copyright (c) 2002-2020 by Derick Rethans]]></copyright></init>
+
+[4410] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" status="stopping" reason="ok"></response>
+
+[4410] Log closed at 2020-06-29 20:36:13
+
+[4448] Log opened at 2020-06-29 20:36:21
+[4448] I: Connecting to configured address/port: localhost:9000.
+[4448] I: Connected to client. :-)
+[4448] -> <init xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" fileuri="file:///app/vendor/phpunit/phpunit/phpunit" language="PHP" xdebug:language_version="7.3.14" protocol_version="1.0" appid="4448" idekey="VSCODE"><engine version="2.9.2"><![CDATA[Xdebug]]></engine><author><![CDATA[Derick Rethans]]></author><url><![CDATA[https://xdebug.org]]></url><copyright><![CDATA[Copyright (c) 2002-2020 by Derick Rethans]]></copyright></init>
+
+[4448] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" status="stopping" reason="ok"></response>
+
+[4448] Log closed at 2020-06-29 20:36:22
+
