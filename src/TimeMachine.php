@@ -2,59 +2,61 @@
 
 namespace Kdabrow\TimeMachine;
 
-use Kdabrow\TimeMachine\DateChooser;
-use Kdabrow\TimeMachine\TimeTraveler;
-use Kdabrow\TimeMachine\Strategies\Resolvers\DateResolver;
-use Kdabrow\TimeMachine\Strategies\Resolvers\PastResolver;
-use Kdabrow\TimeMachine\Strategies\Resolvers\FutureResolver;
+use Kdabrow\TimeMachine\Contracts\DateChooserInterface;
+use Kdabrow\TimeMachine\Contracts\TimeResolverInterface;
+use Kdabrow\TimeMachine\Exceptions\TimeMachineException;
+use Kdabrow\TimeMachine\Resolvers\ToDateResolver;
+use Kdabrow\TimeMachine\Resolvers\FutureResolver;
+use Kdabrow\TimeMachine\Resolvers\PastResolver;
 
 class TimeMachine
 {
     /**
-     * All time travelers
+     * All time travellers
      *
-     * @var array[TimeTraveler]
+     * @var TimeTraveller[]
      */
-    private $travelers = [];
+    private $timeTravellers = [];
 
-    public function take(TimeTraveler $timeTraveler): self
+    public function take(TimeTraveller $timeTraveller): self
     {
-        $this->travelers[] = $timeTraveler;
+        $this->timeTravellers[] = $timeTraveller;
 
         return $this;
     }
 
-    public function toPast(DateChooser $dateChooser): bool
+    public function toThePast(DateChooserInterface $dateChooser): Engine
     {
-        return app(PastResolver::class, [
-            'timeMachine' => $this,
-            'dateChooser' =>  $dateChooser,
-        ])->resolve();
+        return $this->makeEngine(
+            $this->makeResolver(PastResolver::class, $dateChooser)
+        );
     }
 
-    public function toFuture(DateChooser $dateChooser): bool
+    public function toTheFuture(DateChooserInterface $dateChooser): Engine
     {
-        return app(FutureResolver::class, [
-            'timeMachine' => $this,
-            'dateChooser' =>  $dateChooser,
-        ])->resolve();
+        return $this->makeEngine(
+            $this->makeResolver(FutureResolver::class, $dateChooser)
+        );
     }
 
-    public function toDate(DateChooser $dateChooser): bool
+    public function toTheDate(DateChooserInterface $dateChooser): Engine
     {
-        return app(DateResolver::class, [
-            'timeMachine' => $this,
-            'dateChooser' =>  $dateChooser,
-        ])->resolve();
+        return $this->makeEngine(
+            $this->makeResolver(ToDateResolver::class, $dateChooser)
+        );
     }
 
-    /**
-     * Get all time travelers
-     *
-     * @return  array[TimeTraveler]
-     */
-    public function getTravelers()
+    private function makeResolver(string $concrete, DateChooserInterface $dateChooser): TimeResolverInterface
     {
-        return $this->travelers;
+        return app($concrete, ['dateChooser' => $dateChooser]);
+    }
+
+    private function makeEngine(TimeResolverInterface $resolver): Engine
+    {
+        if (empty($this->timeTravellers)) {
+            throw new TimeMachineException("Define at lest one TimeTraveller");
+        }
+
+        return app(Engine::class, ['timeTravellers' => $this->timeTravellers, 'resolver' => $resolver]);
     }
 }

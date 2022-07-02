@@ -2,39 +2,48 @@
 
 namespace Kdabrow\TimeMachine;
 
-use DateTime;
 use DateInterval;
 use DateTimeImmutable;
+use DateTimeInterface;
 use Kdabrow\TimeMachine\Contracts\DateChooserInterface;
+use Kdabrow\TimeMachine\Exceptions\TimeMachineException;
 
 class DateChooser implements DateChooserInterface
 {
-    private $dateInterval;
-
-    private $dateTime;
-
     /**
-     * Number of seconds
-     *
      * @var int
      */
     private $timestamp;
 
-    public function byInterval(DateInterval $dateInterval)
+    /**
+     * @param DateInterval|DateTimeInterface|int $dateSource
+     * @throws TimeMachineException
+     */
+    public function __construct($dateSource)
     {
-        $this->dateInterval = $dateInterval;
-        $this->timestamp = $this->dateIntervalToSeconds($dateInterval);
+        $this->timestamp = $this->determineTimestamp($dateSource);
     }
 
-    public function to(DateTime $dateTime)
+    public function getTimestamp(): int
     {
-        $this->dateTime = $dateTime;
-        $this->timestamp = $dateTime->getTimestamp();
+        return $this->timestamp;
     }
 
-    public function byTimestamp(int $timestamp)
+    private function determineTimestamp($dateSource)
     {
-        $this->timestamp = $timestamp;
+        if ($dateSource instanceof DateInterval) {
+            return $this->dateIntervalToSeconds($dateSource);
+        }
+
+        if ($dateSource instanceof DateTimeInterface) {
+            return $dateSource->getTimestamp();
+        }
+
+        if (is_int($dateSource)) {
+            return $dateSource;
+        }
+
+        throw new TimeMachineException("Date source should be DateInterval, DateTimeInterface or timestamp in seconds");
     }
 
     private function dateIntervalToSeconds(DateInterval $dateInterval): int
@@ -43,18 +52,5 @@ class DateChooser implements DateChooserInterface
         $endTime = $reference->add($dateInterval);
 
         return $endTime->getTimestamp() - $reference->getTimestamp();
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function getTimestamp(): int
-    {
-        return $this->timestamp;
-    }
-
-    public function getInterval(): DateInterval
-    {
-        return $this->dateInterval;
     }
 }
