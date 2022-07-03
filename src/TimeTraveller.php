@@ -4,50 +4,49 @@ namespace Kdabrow\TimeMachine;
 
 use Closure;
 use Illuminate\Database\Eloquent\Model;
+use Kdabrow\TimeMachine\Database\Column;
+use Kdabrow\TimeMachine\Exceptions\TimeMachineException;
 
-class TimeTraveler
+class TimeTraveller
 {
     /**
-     * Model name
+     * Model
      *
-     * @var string
+     * @var Model
      */
     private $model;
 
     /**
      * Conditions by to select change rows
      *
-     * @var array|Closure|null
+     * @var Closure|null
      */
     private $conditions;
 
     /**
      * Additional columns to change
      *
-     * @var array
+     * @var array<string, Column>
      */
-    private $columns;
+    private $columns = [];
 
     /**
      * Columns that shouldn't be changed
      *
-     * @var array
+     * @var Column[]
      */
-    private $excluded;
+    private $excluded = [];
 
     /**
-     * Time traveler represents model or table in database
+     * Time traveller represents model or table in database
      *
      * @param string|Model $model Model name
-     * @param array|Closure|null $conditions Conditions by to select change rows
+     * @param Closure<mixed, string, array<string, array<int, Model>>, Model>|null $conditions Conditions by to select change rows
      */
-    public function __construct($model, $conditions = null)
+    public function __construct($model, Closure $conditions = null)
     {
-        if ($model instanceof Model) {
-            $this->model = class_basename($model);
-        } else {
-            $this->model = $model;
-        }
+        $this->model = $this->makeModel($model);
+
         $this->conditions = $conditions;
     }
 
@@ -61,7 +60,8 @@ class TimeTraveler
      */
     public function alsoChange(string $column, Closure $how = null): self
     {
-        $this->columns[$column] = $how;
+        $this->columns[$column] = (new Column($column))->setCallback($how);
+
         return $this;
     }
 
@@ -74,17 +74,17 @@ class TimeTraveler
      */
     public function exclude(string $column): self
     {
-        $this->excluded[] = $column;
+        $this->excluded[$column] = new Column($column);
 
         return $this;
     }
 
     /**
-     * Get model name
+     * Get eloquent model
      *
-     * @return string
+     * @return Model
      */
-    public function getModel()
+    public function getModel(): Model
     {
         return $this->model;
     }
@@ -92,9 +92,9 @@ class TimeTraveler
     /**
      * Get conditions by to select change rows
      *
-     * @return array|Closure|null
+     * @return Closure|null
      */
-    public function getConditions()
+    public function getConditions(): ?Closure
     {
         return $this->conditions;
     }
@@ -102,7 +102,7 @@ class TimeTraveler
     /**
      * Get additional columns to change
      *
-     * @return array
+     * @return array<string, callable>
      */
     public function getColumns()
     {
@@ -112,10 +112,27 @@ class TimeTraveler
     /**
      * Get columns that shouldn't be changed
      *
-     * @return  array
+     * @return string[]
      */
     public function getExcluded()
     {
         return $this->excluded;
+    }
+
+    /**
+     * @param string|Model $model
+     * @return Model
+     */
+    private function makeModel($model)
+    {
+        if (is_string($model)) {
+            $model = app($model);
+        }
+
+        if ($model instanceof Model === false) {
+            throw new TimeMachineException("Only eloquent model can be a time traveller");
+        }
+
+        return $model;
     }
 }

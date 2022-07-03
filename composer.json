@@ -1,6 +1,6 @@
 {
 	"name": "kdabrow/time-machine",
-	"description": "Laravel / Lumen library that allows to changed dates in db",
+	"description": "Laravel / Lumen library that allows to change dates in db",
 	"type": "package",
 	"keywords": [
 		"php",
@@ -15,16 +15,16 @@
 	"authors": [
 		{
 			"name": "Karol Dąbrowski",
-			"email": "karol_dabrowski@interia.eu",
-			"homepage": "http://kdabrow.com"
+			"email": "20278897+karoldabro@users.noreply.github.com",
+			"homepage": "https://kdabrow.com"
 		}
 	],
 	"require": {
-		"php": ">= 7.2",
-		"illuminate/database": "^6.0 || ^7.0"
+		"php": "^7.2|^8.0",
+		"illuminate/database": "^6.0|^7.0|^8.0|^9.0"
 	},
 	"require-dev": {
-		"orchestra/testbench": "^5.0"
+		"orchestra/testbench": "^4.0|^5.0|^6.0|^7.0"
 	},
 	"autoload": {
 		"psr-4": {

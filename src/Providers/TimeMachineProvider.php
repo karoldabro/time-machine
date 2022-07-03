@@ -3,18 +3,13 @@
 namespace Kdabrow\TimeMachine\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Kdabrow\TimeMachine\Contracts\SelectorInterface;
+use Kdabrow\TimeMachine\Database\DefaultSelector;
 
 class TimeMachineProvider extends ServiceProvider
 {
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../../config/time-machine.php', 'time-machine');
-    }
-
-    public function boot()
-    {
-        $this->publishes([
-            __DIR__ . '/../../config/time-machine.php' => config_path('time-machine.php'),
-        ], 'time-machine.config');
+        $this->app->bind(SelectorInterface::class, DefaultSelector::class);
     }
 }
