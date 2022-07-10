@@ -54,9 +54,11 @@ class Engine
     public function start(): Result
     {
         foreach ($this->timeTravellers as $timeTraveller) {
-            $columns = $this->table->columnsToUpdate($timeTraveller);
+            $columnsToUpdate = $this->table->columnsToUpdate($timeTraveller);
 
-            $results = $this->selector->getRecords($timeTraveller, array_keys($columns), $this->result);
+            $columnsToSelect = array_merge($timeTraveller->getKeys(), array_keys($columnsToUpdate));
+
+            $results = $this->selector->getRecords($timeTraveller, $columnsToSelect, $this->result);
 
             if ($results->isEmpty()) {
                 continue;
@@ -64,7 +66,7 @@ class Engine
 
             foreach ($results as $result) {
                 try {
-                    foreach ($columns as $columnName => $column) {
+                    foreach ($columnsToUpdate as $columnName => $column) {
                         $this->updateValue($result, $columnName, $column);
                     }
 

@@ -25,21 +25,21 @@ class TimeMachine
         return $this;
     }
 
-    public function toThePast(DateChooserInterface $dateChooser): Engine
+    public function toPast(DateChooserInterface $dateChooser): Engine
     {
         return $this->makeEngine(
             $this->makeResolver(PastResolver::class, $dateChooser)
         );
     }
 
-    public function toTheFuture(DateChooserInterface $dateChooser): Engine
+    public function toFuture(DateChooserInterface $dateChooser): Engine
     {
         return $this->makeEngine(
             $this->makeResolver(FutureResolver::class, $dateChooser)
         );
     }
 
-    public function toTheDate(DateChooserInterface $dateChooser): Engine
+    public function toDate(DateChooserInterface $dateChooser): Engine
     {
         return $this->makeEngine(
             $this->makeResolver(ToDateResolver::class, $dateChooser)

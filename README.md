@@ -1,11 +1,11 @@
 # Time machine
-This package allows relatively to move in time database data. It will automatically select all fields 
-that store datetime and move them by given period or to particular date, relatively from it current 
+This package allows relatively to move in time database data. It will automatically select all fields
+that store datetime and move them by given period or to particular date, relatively from it current
 value.
 ## Motivation
-Sometimes is need to move in time some data on development environment. For example generating 
+Sometimes is need to move in time some data on development environment. For example generating
 invoice for your customer. Thanks to this package you're able to simulate time passed to next invoice
-cycle and generate invoice like it was generated in previous cycle. 
+cycle and generate invoice like it was generated in previous cycle.
 ## Installation
 First install main package:
 ```shell
@@ -101,6 +101,17 @@ use Kdabrow\TimeMachine\TimeTraveller;
 $traveller = new TimeTraveller(User::class);
 $traveller->exclude('date_of_birth');
 ```
+#### Set up keys
+Records selected to time travel are based on primary key from the model. You're able to overwrite it.
+```php
+<?php
+
+use App\Models\User;
+use Kdabrow\TimeMachine\TimeTraveller;
+
+$traveller = new TimeTraveller(User::class);
+$traveller->setKeys(['uuid']);
+```
 ### Time machine and direction of move
 After TimeTravellers are created, create TimeMachine.
 ```php
@@ -181,6 +192,7 @@ $result = $timeMachine
 
 ## Examples
 ### Move customer, it's payments and orders 30 days in the past
+
 ```php
 <?php
 
@@ -225,7 +237,7 @@ $result = $timeMachine
     ->take($customerTraveller)
     ->take($paymentTraveller)
     ->take($orderTraveller)
-    ->toThePast(new DateInterval("P30D"))
+    ->toPast(new DateInterval("P30D"))
     ->start();
 
 // Get instances that failed time travel
