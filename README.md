@@ -101,6 +101,17 @@ use Kdabrow\TimeMachine\TimeTraveller;
 $traveller = new TimeTraveller(User::class);
 $traveller->exclude('date_of_birth');
 ```
+#### Set up keys
+Records selected to time travel are based on primary key from the model. You're able to overwrite it.
+```php
+<?php
+
+use App\Models\User;
+use Kdabrow\TimeMachine\TimeTraveller;
+
+$traveller = new TimeTraveller(User::class);
+$traveller->setKeys(['uuid']);
+```
 ### Time machine and direction of move
 After TimeTravellers are created, create TimeMachine.
 ```php
