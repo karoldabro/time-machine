@@ -13,9 +13,10 @@ composer require kdabrow/time-machine
 ```
 Then install database driver package:
 
-| Database | Driver                                             |
-| -------- |----------------------------------------------------|
-| mysql    | ```composer require kdabrow/time-machine-mysql ``` |
+| Database | Driver                                                |
+|----------|-------------------------------------------------------|
+| mysql    | ```composer require kdabrow/time-machine-mysql ```    |
+| postgres | ```composer require kdabrow/time-machine-postgres ``` |
 
 Advice is to install those packages as --dev dependencies.
 ## Usage
