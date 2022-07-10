@@ -4,14 +4,15 @@ namespace Kdabrow\TimeMachine\Contracts;
 
 use Illuminate\Database\Eloquent\Model;
 use Kdabrow\TimeMachine\Database\Column;
+use Kdabrow\TimeMachine\TimeTraveller;
 
 interface DatabaseTableInterface
 {
     /**
      * Returns database table fields that can be updated
      *
-     * @param Model $model
+     * @param TimeTraveller $timeTraveller
      * @return array<string, Column> Key is column name, value is Column object
      */
-    public function selectUpdatableFields(Model $model): array;
+    public function selectUpdatableFields(TimeTraveller $timeTraveller): array;
 }
