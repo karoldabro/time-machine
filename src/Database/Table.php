@@ -25,7 +25,7 @@ class Table
      */
     public function columnsToUpdate(TimeTraveller $timeTraveller): array
     {
-        $columns = $this->databaseTable->selectUpdatableFields($timeTraveller->getModel());
+        $columns = $this->databaseTable->selectUpdatableFields($timeTraveller);
 
         foreach ($timeTraveller->getColumns() as $columnName => $column) {
             if (isset($columns[$columnName])) {

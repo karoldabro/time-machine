@@ -181,6 +181,7 @@ $result = $timeMachine
 
 ## Examples
 ### Move customer, it's payments and orders 30 days in the past
+
 ```php
 <?php
 
@@ -225,7 +226,7 @@ $result = $timeMachine
     ->take($customerTraveller)
     ->take($paymentTraveller)
     ->take($orderTraveller)
-    ->toThePast(new DateInterval("P30D"))
+    ->toPast(new DateInterval("P30D"))
     ->start();
 
 // Get instances that failed time travel

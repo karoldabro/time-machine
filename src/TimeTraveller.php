@@ -38,14 +38,23 @@ class TimeTraveller
     private $excluded = [];
 
     /**
+     * Primary or other set of the keys
+     * @var string[]
+     */
+    private $keys = ['id'];
+
+    /**
      * Time traveller represents model or table in database
      *
      * @param string|Model $model Model name
      * @param Closure<mixed, string, array<string, array<int, Model>>, Model>|null $conditions Conditions by to select change rows
+     * @param string[] $keys Name of the primary key, or other set of keys
      */
     public function __construct($model, Closure $conditions = null)
     {
         $this->model = $this->makeModel($model);
+
+        $this->keys = [$this->model->getKeyName()];
 
         $this->conditions = $conditions;
     }
@@ -134,5 +143,23 @@ class TimeTraveller
         }
 
         return $model;
+    }
+
+    /**
+     * @param string[] $keys
+     * @return self
+     */
+    public function setKeys(array $keys): self
+    {
+        $this->keys = $keys;
+        return $this;
+    }
+
+    /**
+     * @return string[]
+     */
+    public function getKeys(): array
+    {
+        return $this->keys;
     }
 }
