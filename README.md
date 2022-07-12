@@ -53,10 +53,12 @@ use Illuminate\Support\Arr;
 $traveller = new TimeTraveller(
     User::class, 
     function(Builder $builder, Result $result) {
-        return $query->whereIn(
-            'group_id', 
-            $result->getSuccessful(Group::class)->pluck('id')
-        );
+        if ($result->isSuccessful(Group::class)) {
+            return $query->whereIn(
+                'group_id', 
+                $result->getSuccessful(Group::class)->pluck('id')
+            );
+        }
     }
 );
 ```
@@ -217,18 +219,22 @@ $customerTraveller = new TimeTraveller(
 $paymentTraveller = new TimeTraveller(
     Payment::class,  
     function(Builder $builder, Result $result) use ($customerId) {
-        return $builder->whereIn(
-            'customer_id', $result->getSuccessful(Customer::class)->pluck('id')
-        );
-    } 
+        if ($result->isSuccessful(Customer::class)) {
+                return $builder->whereIn(
+                    'customer_id', $result->getSuccessful(Customer::class)->pluck('id')
+                );
+            }    
+        }
 );
 
 $orderTraveller = new TimeTraveller(
     Order::class,  
     function(Builder $builder, Result $result) use ($customerId) {
-        return $builder->whereIn(
-            'payment_id', $result->getSuccessful(Payment::class)->pluck('id')
-        );
+        if ($result->isSuccessful(Payment::class)) {
+            return $builder->whereIn(
+                'payment_id', $result->getSuccessful(Payment::class)->pluck('id')
+            );
+        }
     }
 );
 

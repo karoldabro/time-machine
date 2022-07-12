@@ -64,4 +64,14 @@ class Result
     {
         return $this->failed[$modelName];
     }
+
+    public function isSuccessful(string $modelName): bool
+    {
+        return isset($this->successful[$modelName]);
+    }
+
+    public function isFailed(string $modelName): bool
+    {
+        return isset($this->failed[$modelName]);
+    }
 }
