@@ -1,11 +1,12 @@
 # Time machine
-This package allows relatively to move in time database data. It will automatically select all fields
+This package allows to move in time database data. It automatically selects all fields
 that store datetime and move them by given period or to particular date, relatively from it current
-value.
+value. See example to check more details.
 ## Motivation
-Sometimes is need to move in time some data on development environment. For example generating
-invoice for your customer. Thanks to this package you're able to simulate time passed to next invoice
-cycle and generate invoice like it was generated in previous cycle.
+This package might be useful in a pre-prod environment to test log lasting processes. For example 
+generating customer invoice. Usually invoices are generated in a 30 days period. You might move  
+customer and all it's data into previous invoice cycle (30 days in to past) and effectively simulate 
+whole invoice cycle like that customer was created 30 days ago.
 ## Installation
 First install main package:
 ```shell
@@ -147,7 +148,7 @@ $chooser = new DateChooser(3600); // Move by 1 hour
 // Now set up direction and start travel
 /** @var Result $result */
 $result = $timeMachine
-    ->toThePast($chooser)
+    ->toPast($chooser)
     ->start();
 ```
 #### Move to the future
@@ -168,7 +169,7 @@ $chooser = new DateChooser(3600); // Move by 1 hour
 // Now set up direction and start travel
 /** @var Result $result */
 $result = $timeMachine
-    ->toTheFuture($chooser)
+    ->toFuture($chooser)
     ->start();
 ```
 #### Move to particular date
@@ -189,12 +190,50 @@ $chooser = new DateChooser("2020-15-16 12:12:12"); // Move to 2020-15-16 12:12:1
 // Now set up direction and start travel
 /** @var Result $result */
 $result = $timeMachine
-    ->toTheDate($chooser)
+    ->toDate($chooser)
     ->start();
 ```
 
 ## Examples
-### Move customer, it's payments and orders 30 days in the past
+### Move customer, it's payments and orders 10 days in the past
+Database structure before and after change:  
+**customers (before)**
+
+| id  | email           | date_of_birth | activated_at        | created_at          | updated_at          |
+|-----|-----------------|---------------|---------------------|---------------------|---------------------|
+| 100 | tesla@test.com  | 1856-07-10    | 2000-06-15 12:12:12 | 1999-06-15 12:12:12 | 1999-06-15 12:12:12 |
+
+**customers (after)**
+
+| id  | email           | date_of_birth | activated_at        | created_at          | updated_at          |
+|-----|-----------------|---------------|---------------------|---------------------|---------------------|
+| 100 | tesla@test.com  | 1856-07-10    | 2000-06-05 12:12:12 | 1999-06-05 12:12:12 | 1999-06-05 12:12:12 |
+
+**payments (before)**
+
+| id  | customer_id | amount | paid_at             | created_at          | updated_at          |
+|-----|-------------|--------|---------------------|---------------------|---------------------|
+| 200 | 100         | 120    | 2020-03-24 13:10:45 | 2020-03-24 10:10:45 | 2020-03-24 13:10:45 |
+
+**payments (after)**
+
+| id  | customer_id | amount | paid_at             | created_at          | updated_at          |
+|-----|-------------|--------|---------------------|---------------------|---------------------|
+| 200 | 100         | 120    | 2020-03-14 13:10:45 | 2020-03-14 10:10:45 | 2020-03-14 13:10:45 |
+
+**orders**
+
+| id  | payment_id | name   | sent_at    | created_at          | updated_at          |
+|-----|------------|--------|------------|---------------------|---------------------|
+| 300 | 200        | Engine | 2020-03-25 | 2020-03-24 13:11:22 | 2020-03-25 15:32:17 |
+
+**orders**
+
+| id  | payment_id | name   | sent_at    | created_at          | updated_at          |
+|-----|------------|--------|------------|---------------------|---------------------|
+| 300 | 200        | Engine | 2020-03-15 | 2020-03-14 13:11:22 | 2020-03-15 15:32:17 |
+
+Script:
 
 ```php
 <?php
@@ -215,6 +254,7 @@ $customerTraveller = new TimeTraveller(
         return $builder->where('id', '=', $customerId);
     }
 );
+$customerTraveller->exclude('date_of_birth');
 
 $paymentTraveller = new TimeTraveller(
     Payment::class,  
@@ -244,7 +284,7 @@ $result = $timeMachine
     ->take($customerTraveller)
     ->take($paymentTraveller)
     ->take($orderTraveller)
-    ->toPast(new DateInterval("P30D"))
+    ->toPast(new DateInterval("P10D"))
     ->start();
 
 // Get instances that failed time travel
