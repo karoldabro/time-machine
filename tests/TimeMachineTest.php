@@ -22,7 +22,7 @@ class TimeMachineTest extends TestCase
 
         $timeMachine = new TimeMachine();
 
-        $timeMachine->toThePast($dateChooserMock);
+        $timeMachine->toPast($dateChooserMock);
     }
 
     /** @test */
@@ -38,21 +38,21 @@ class TimeMachineTest extends TestCase
             Engine::class,
             (new TimeMachine())
                 ->take($timeTravellerMock)
-                ->toThePast($dateChooserMock)
+                ->toPast($dateChooserMock)
         );
 
         $this->assertInstanceOf(
             Engine::class,
             (new TimeMachine())
                 ->take($timeTravellerMock)
-                ->toTheFuture($dateChooserMock)
+                ->toFuture($dateChooserMock)
         );
 
         $this->assertInstanceOf(
             Engine::class,
             (new TimeMachine())
                 ->take($timeTravellerMock)
-                ->toTheDate($dateChooserMock)
+                ->toDate($dateChooserMock)
         );
     }
 }
