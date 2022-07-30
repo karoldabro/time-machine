@@ -1,3 +1,9 @@
+<p align="center">
+<img alt="GitHub Workflow Status (branch)" src="https://img.shields.io/github/workflow/status/karoldabro/time-machine/tests/master">
+<img alt="Packagist Version" src="https://img.shields.io/packagist/v/kdabrow/time-machine">
+<img alt="Packagist Downloads" src="https://img.shields.io/packagist/dm/kdabrow/time-machine">
+</p>
+
 # Time machine
 This package allows to move in time database data. It automatically selects all fields
 that store datetime and move them by given period or to particular date, relatively from it current
