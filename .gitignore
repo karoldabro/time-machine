@@ -5,3 +5,4 @@ vendor
 .gitmodules
 composer.lock
 .idea
+.phpunit.cache
