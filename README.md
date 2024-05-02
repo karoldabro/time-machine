@@ -1,5 +1,5 @@
 <p align="center">
-<img alt="GitHub Workflow Status (branch)" src="https://img.shields.io/github/workflow/status/karoldabro/time-machine/tests/master">
+<img alt="GitHub Workflow Status (branch)" src="https://github.com/karoldabro/time-machine/actions/workflows/laravel.yml/badge.svg">
 <img alt="Packagist Version" src="https://img.shields.io/packagist/v/kdabrow/time-machine">
 <img alt="Packagist Downloads" src="https://img.shields.io/packagist/dm/kdabrow/time-machine">
 </p>
